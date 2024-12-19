@@ -5,9 +5,11 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.regex.Pattern;
 
 @Getter
 @Setter
@@ -25,7 +27,8 @@ public class TodoDTO {
 
     private String contents; //해야할일
 
-    private LocalDateTime datetodo; //날짜
+    @DateTimeFormat(pattern ="yyyy-MM-dd")
+    private LocalDate datetodo; //날짜
 
     private String importance; //중요도
 

@@ -9,6 +9,75 @@
 
 </head>
 <body>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-4"></div><!--여백-->
+        <div class="col-4"><!--입력폼 디자인-->
+            <!--맵핑명은 반드시 /시작{/b} @GetMapping("/b")-->
+            <!--페이지 지정은 / 샐략 return "list" 실수로 return "/list"-->
+            <form th:action="@{/c}" method="post" th:object="${data}">
+                <div class="toast show">
+                    <div class="toast-header">
+                        <h3>할 일 수정</h3>
+                    </div>
+                    <!--controller에서 model.addAttribute에 전달되는 변수명-->
+                    <!--{전달된 변수명.DTO내 변수명} 기본방식-->
+                    <!--object로 이용방식(검증) object="{전달된 변수명}" form내-->
+                    <!--field="{DTO변수명으로}" input내에-->
+                    <!--Object(부모)-field(자식)-->
+                    <div class="toast-body">
+                        <div class="mb-3 mt-3">
+                            <label for="title" class="form-label">제목</label>
+                            <input type="text" class="form-control" id="title"
+                                   placeholder="제목을 입력하세요." name="title" th:field="*{title}">
+                        </div>
+
+                        <div class="mb-3 mt-3">
+                            <label for="todo" class="form-label">해야할 일</label>
+                            <input type="text" class="form-control" id="todo"
+                                   placeholder="할 일을 입력하세요." name="todo" th:field="*{todo}">
+                        </div>
+
+                        <div class="mb-3 mt-3">
+                            <label for="datetodo" class="form-label">진행일</label>
+                            <input type="date" class="form-control" id="datetodo" th:field="*{datetodo}">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="importance" class="form-label">중요도</label>
+                            <select class="form-select" id="importance" name="importance" th:field="*{importance}">
+                                <option value="매우 중요">매우 중요</option>
+                                <option value="중요">중요</option>
+                                <option value="보통">보통</option>
+                                <option value="글쎄">중요X</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3 mt-3">
+                            <label for="status" class="form-label">상태</label>
+                            <select class="form-select" id="status" name="status" th:field="*{status}">
+                                <option value="완료">완료</option>
+                                <option value="진행중">진행중</option>
+                                <option value="보류">보류</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <button type="submit" class="btn btn-primary">추가</button>
+                            <button type="button" class="btn btn-secondary"
+                                    onclick="Window.history.back()">돌아가기</button>
+                        </div>
+                    </div>
+                </div>
+                <!--자바스크립트-->
+                <!--문법 : 변수, 연산자, 조건문, 반복문-->
+                <!--프로그램 구성은 바로 실행---함수 구성은 호출해서 실행-->
+                <!--DOM(문서(HTML)을 처리하는 함수 모음), BOM(브라우저를 처리하는 함수 모음)-->
+
+            </form>
+        </div>
+
+    </div>
+
+</div>
 
 </body>
 </html>

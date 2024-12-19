@@ -2,8 +2,9 @@ package com.lookatme.todo.Controller;
 
 import com.lookatme.todo.DTO.TodoDTO;
 import com.lookatme.todo.Service.TodoService;
-import com.lookatme.todo.Util.PagenationUtil;
+import com.lookatme.todo.Util.PaginationUtil;
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.logging.LogLevel;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -35,7 +36,7 @@ public class TodoController {
         Page<TodoDTO> todoDTOS = todoService.list(pageable);
 
         //사용자 클래스에서 페이지 정보를 보내서 HTML에 필요한 페이지 정보를 받는다.
-        Map<String, Integer> pageInfo = PagenationUtil.Pagination(todoDTOS);
+        Map<String, Integer> pageInfo = PaginationUtil.Pagination(todoDTOS);
 
         model.addAttribute("list", todoDTOS);
         //Map은 변수, 값....클래스가 존재하지 않으므로

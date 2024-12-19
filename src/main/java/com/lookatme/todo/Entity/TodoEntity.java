@@ -3,6 +3,7 @@ package com.lookatme.todo.Entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -33,7 +34,7 @@ public class TodoEntity extends BaseEntity{
     private String todo; //해야할일
 
     @Column(name = "datetodo")
-    private LocalDateTime datetodo; //날짜
+    private LocalDate datetodo; //날짜
 
     @Column(name = "importance", length = 20)
     private String importance; //중요도
